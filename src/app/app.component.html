@@ -1,9 +1,154 @@
-<div class="heading-div">
-  <h1>Create Your Club</h1>
-</div>
-<div class="form-div">
-  <div class="first-row">
-
+<div class="main-div">
+  <div class="heading-div">
+    <h1>Create Your Club</h1>
   </div>
-  <form></form>
+  <div class="form-div">
+    <div class="first-row">
+      <form>
+        <mat-card>
+          <mat-card-title>Club Information</mat-card-title>
+          <mat-card-subtitle>Please enter these club details</mat-card-subtitle>
+          <mat-form-field
+            appearance="outline"
+            class="width90"
+            style="margin-top: 20px"
+          >
+            <mat-label>Club Name</mat-label>
+            <input type="text" matInput placeholder="Club Name" />
+          </mat-form-field>
+          <div appearance="outline" class="width90">
+            <mat-label>Club Logo : </mat-label>
+            <input type="file" placeholder="Club Logo" />
+          </div>
+        </mat-card>
+        <mat-card
+          ><mat-card-title style="margin-top: 20px"
+            >Club Location</mat-card-title
+          >
+          <mat-form-field
+            appearance="outline"
+            class="width90"
+            style="margin-top: 20px"
+          >
+            <mat-label>Club Address</mat-label>
+            <input type="text" matInput placeholder="Club Address" />
+          </mat-form-field>
+          <div class="two-input">
+            <mat-form-field appearance="outline" class="width50">
+              <mat-label>Latitude</mat-label>
+              <input type="text" matInput placeholder="Latitude" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="width50">
+              <mat-label>Longitude</mat-label>
+              <input type="text" matInput placeholder="Longitude" />
+            </mat-form-field>
+          </div>
+          <div class="two-input">
+            <mat-form-field appearance="outline" class="width50">
+              <mat-label>Country</mat-label>
+              <input type="text" matInput placeholder="Country" />
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="width50">
+              <mat-label>City</mat-label>
+              <input type="text" matInput placeholder="City" />
+            </mat-form-field>
+          </div>
+        </mat-card>
+        <mat-card
+          ><mat-card-title style="margin-top: 20px">Club Menu</mat-card-title>
+          <div style="width: 90%">
+            <mat-form-field
+              appearance="outline"
+              class="width90"
+              style="margin-top: 20px"
+            >
+              <mat-label>Category</mat-label>
+              <input type="text" matInput placeholder="Category" />
+            </mat-form-field>
+            <div class="two-input">
+              <mat-form-field appearance="outline" class="width50">
+                <mat-label>SubItem</mat-label>
+                <input type="text" matInput placeholder="SubItem" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="width50">
+                <mat-label>Price</mat-label>
+                <input type="text" matInput placeholder="Price" />
+              </mat-form-field>
+            </div>
+            <div class="two-input">
+              <mat-form-field appearance="outline" class="width50">
+                <mat-label>SubItem</mat-label>
+                <input type="text" matInput placeholder="SubItem" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="width50">
+                <mat-label>Price</mat-label>
+                <input type="text" matInput placeholder="Price" />
+              </mat-form-field>
+            </div>
+          </div> </mat-card
+        ><mat-card
+          ><mat-card-title style="margin-top: 20px"
+            >Club Table Map</mat-card-title
+          >
+          <div appearance="outline" class="width90" style="margin-top: 20px">
+            <mat-label>Club Table Map : </mat-label>
+            <input type="file" placeholder="Club Logo" />
+          </div> </mat-card
+        ><mat-card
+          ><mat-card-title style="margin-top: 20px"
+            >Club Table Numbers</mat-card-title
+          >
+          <mat-form-field appearance="outline" class="width90">
+            <mat-label>Club Table Numbers</mat-label>
+            <input type="text" matInput placeholder="Club Table Numbers" />
+          </mat-form-field>
+        </mat-card>
+        <mat-card
+          ><mat-card-title style="margin-top: 20px"
+            >Bank Details</mat-card-title
+          >
+          <div style="width: 90%">
+            <mat-form-field
+              appearance="outline"
+              class="width90"
+              style="margin-top: 20px"
+            >
+              <mat-label>Bank Name</mat-label>
+              <input type="text" matInput placeholder="Bank Name" />
+            </mat-form-field>
+            <mat-form-field
+              appearance="outline"
+              class="width90"
+              style="margin-top: 20px"
+            >
+              <mat-label>Bank Location</mat-label>
+              <input type="text" matInput placeholder="Bank Location" />
+            </mat-form-field>
+
+            <div class="two-input">
+              <mat-form-field appearance="outline" class="width50">
+                <mat-label>Card Number</mat-label>
+                <input type="text" matInput placeholder="Card Number" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="width50">
+                <mat-label>Card Holder Name</mat-label>
+                <input type="text" matInput placeholder="Card Holder Name" />
+              </mat-form-field>
+            </div>
+            <div class="two-input">
+              <mat-form-field appearance="outline" class="width50">
+                <mat-label>Card Number</mat-label>
+                <input type="text" matInput placeholder="Card Number" />
+              </mat-form-field>
+              <mat-form-field appearance="outline" class="width50">
+                <mat-label>Card Holder Name</mat-label>
+                <input type="text" matInput placeholder="Card Holder Name" />
+              </mat-form-field>
+            </div>
+          </div>
+        </mat-card>
+        <button mat-raised-button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
 </div>
