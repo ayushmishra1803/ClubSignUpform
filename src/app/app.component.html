@@ -112,23 +112,18 @@
                 formControlName="category_name"
               />
             </mat-form-field>
-            <button
-              mat-raised-button
-              color="primary"
-              type="submit"
-              (click)="addSubCategory()"
-            >
-              Add SubCategory
-            </button>
+
             <div
               class="two-input"
               formArrayName="sub_category"
               *ngFor="
-                let subCategory of signUpForm
-                  .get('menu')
-                  ['controls'][menuIndex].get('sub_category')['controls']
-              "
+                let subCategory of getSubcategories(menuIndex);let subIndex=index
+              "[formGroupName]="subIndex"
             >
+            <mat-form-field appearance="outline" class="width50">
+              <mat-label>Sub Category</mat-label>
+              <input type="text" matInput placeholder="SubItem" formControlName="sub_category_name" />
+            </mat-form-field>
               <mat-form-field appearance="outline" class="width50">
                 <mat-label>SubItem</mat-label>
                 <input type="text" matInput placeholder="SubItem" />
@@ -138,6 +133,14 @@
                 <input type="text" matInput placeholder="Price" />
               </mat-form-field>
             </div>
+            <button
+              mat-raised-button
+              color="primary"
+              type="button"
+              (click)="addSubCategory(menuIndex)"
+            >
+              Add SubCategory</button
+            ><br />
           </div>
           <button
             mat-raised-button

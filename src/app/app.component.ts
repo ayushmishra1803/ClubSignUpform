@@ -57,8 +57,22 @@ export class AppComponent implements OnInit {
     return (this.signUpForm.get('menu') as FormArray).controls;
   }
   addSubCategory(categoryIndex) {
-    (<FormArray>this.signUpForm.get('menu')).controls[categoryIndex].get(
-      'sub_category'
+    (<FormArray>(
+      (<FormArray>this.signUpForm.get('menu')).controls[categoryIndex].get(
+        'sub_category'
+      )
+    )).push(
+      new FormGroup({
+        sub_category_name: new FormControl('', [Validators.required]),
+        items: new FormArray([]),
+      })
     );
+  }
+  getSubcategories(index) {
+    return (<FormArray>(
+      (<FormArray>this.signUpForm.get('menu')).controls[index].get(
+        'sub_category'
+      )
+    )).controls;
   }
 }
