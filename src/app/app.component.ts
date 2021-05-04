@@ -36,16 +36,5 @@ export class AppComponent implements OnInit {
     });
   }
   title = 'ClubSignUp';
-  addMenuCategory() {
-    (this.signUpForm.get('menu') as FormArray).push(
-      new FormGroup({
-        category_name:new FormControl('',[Validators.required]),
-       sub_category: new FormGroup({
-          name:new FormControl('',[Validators.required]),
-         items:new FormArray([])
-        })
-      })
-    );
-  }
-
+  addMenuCategory() {}
 }
