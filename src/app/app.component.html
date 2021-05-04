@@ -4,7 +4,7 @@
   </div>
   <div class="form-div">
     <div class="first-row">
-      <form>
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <mat-card>
           <mat-card-title>Club Information</mat-card-title>
           <mat-card-subtitle>Please enter these club details</mat-card-subtitle>
@@ -14,14 +14,23 @@
             style="margin-top: 20px"
           >
             <mat-label>Club Name</mat-label>
-            <input type="text" matInput placeholder="Club Name" />
+            <input
+              type="text"
+              matInput
+              placeholder="Club Name"
+              formControlName="club_name"
+            />
           </mat-form-field>
-          <div appearance="outline" class="width90">
+          <div
+            appearance="outline"
+            class="width90"
+            formGroupName="club_loaction"
+          >
             <mat-label>Club Logo : </mat-label>
             <input type="file" placeholder="Club Logo" />
           </div>
         </mat-card>
-        <mat-card
+        <mat-card formGroupName="club_loaction"
           ><mat-card-title style="margin-top: 20px"
             >Club Location</mat-card-title
           >
@@ -31,32 +40,62 @@
             style="margin-top: 20px"
           >
             <mat-label>Club Address</mat-label>
-            <input type="text" matInput placeholder="Club Address" />
+            <input
+              type="text"
+              matInput
+              placeholder="Club Address"
+              formControlName="address"
+            />
           </mat-form-field>
           <div class="two-input">
             <mat-form-field appearance="outline" class="width50">
               <mat-label>Latitude</mat-label>
-              <input type="text" matInput placeholder="Latitude" />
+              <input
+                type="text"
+                matInput
+                placeholder="Latitude"
+                formControlName="lat"
+              />
             </mat-form-field>
             <mat-form-field appearance="outline" class="width50">
               <mat-label>Longitude</mat-label>
-              <input type="text" matInput placeholder="Longitude" />
+              <input
+                type="text"
+                matInput
+                placeholder="Longitude"
+                formControlName="log"
+              />
             </mat-form-field>
           </div>
           <div class="two-input">
             <mat-form-field appearance="outline" class="width50">
               <mat-label>Country</mat-label>
-              <input type="text" matInput placeholder="Country" />
+              <input
+                type="text"
+                matInput
+                placeholder="Country"
+                formControlName="country"
+              />
             </mat-form-field>
             <mat-form-field appearance="outline" class="width50">
               <mat-label>City</mat-label>
-              <input type="text" matInput placeholder="City" />
+              <input
+                type="text"
+                matInput
+                placeholder="City"
+                formControlName="city"
+              />
             </mat-form-field>
           </div>
         </mat-card>
-        <mat-card
+
+        <mat-card formArrayName="menu"
           ><mat-card-title style="margin-top: 20px">Club Menu</mat-card-title>
-          <div style="width: 90%">
+          <div
+            style="width: 90%"
+            *ngFor="let menu of getCategory(); let menuIndex = index"
+            [formGroupName]="i"
+          >
             <mat-form-field
               appearance="outline"
               class="width90"
@@ -85,7 +124,15 @@
                 <input type="text" matInput placeholder="Price" />
               </mat-form-field>
             </div>
-          </div> </mat-card
+          </div>
+          <button
+            mat-raised-button
+            color="primary"
+            type="button"
+            (click)="addMenuCategory()"
+          >
+            Add Category
+          </button> </mat-card
         ><mat-card
           ><mat-card-title style="margin-top: 20px"
             >Club Table Map</mat-card-title

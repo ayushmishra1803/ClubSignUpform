@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormArray,
+  FormArrayName,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -36,5 +42,18 @@ export class AppComponent implements OnInit {
     });
   }
   title = 'ClubSignUp';
-  addMenuCategory() {}
+  addMenuCategory() {
+    (this.signUpForm.get('menu') as FormArray).push(
+      new FormGroup({
+        category_name: new FormControl('', [Validators.required]),
+        sub_category: new FormArray([]),
+      })
+    );
+  }
+  onSubmit() {
+    console.log(this.signUpForm.value);
+  }
+  getCategory() {
+    return (this.signUpForm.get('menu') as FormArray).controls;
+  }
 }
