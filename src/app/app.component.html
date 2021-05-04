@@ -93,8 +93,11 @@
           ><mat-card-title style="margin-top: 20px">Club Menu</mat-card-title>
           <div
             style="width: 90%"
-            *ngFor="let menu of getCategory(); let menuIndex = index"
-            [formGroupName]="i"
+            *ngFor="
+              let menu of signUpForm.get('menu')['controls'];
+              let menuIndex = index
+            "
+            [formGroupName]="menuIndex"
           >
             <mat-form-field
               appearance="outline"
@@ -102,19 +105,30 @@
               style="margin-top: 20px"
             >
               <mat-label>Category</mat-label>
-              <input type="text" matInput placeholder="Category" />
+              <input
+                type="text"
+                matInput
+                placeholder="Category"
+                formControlName="category_name"
+              />
             </mat-form-field>
-            <div class="two-input">
-              <mat-form-field appearance="outline" class="width50">
-                <mat-label>SubItem</mat-label>
-                <input type="text" matInput placeholder="SubItem" />
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="width50">
-                <mat-label>Price</mat-label>
-                <input type="text" matInput placeholder="Price" />
-              </mat-form-field>
-            </div>
-            <div class="two-input">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              (click)="addSubCategory()"
+            >
+              Add SubCategory
+            </button>
+            <div
+              class="two-input"
+              formArrayName="sub_category"
+              *ngFor="
+                let subCategory of signUpForm
+                  .get('menu')
+                  ['controls'][menuIndex].get('sub_category')['controls']
+              "
+            >
               <mat-form-field appearance="outline" class="width50">
                 <mat-label>SubItem</mat-label>
                 <input type="text" matInput placeholder="SubItem" />

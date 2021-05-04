@@ -56,4 +56,9 @@ export class AppComponent implements OnInit {
   getCategory() {
     return (this.signUpForm.get('menu') as FormArray).controls;
   }
+  addSubCategory(categoryIndex) {
+    (<FormArray>this.signUpForm.get('menu')).controls[categoryIndex].get(
+      'sub_category'
+    );
+  }
 }
