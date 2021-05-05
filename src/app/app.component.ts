@@ -35,6 +35,8 @@ export class AppComponent implements OnInit {
         bank_location: new FormControl('', [Validators.required]),
       }),
       club_images: new FormArray([]),
+      table_price: new FormControl(''),
+      workingDays: new FormArray([]),
     });
   }
   title = 'ClubSignUp';
@@ -93,5 +95,15 @@ export class AppComponent implements OnInit {
         )
       )).controls[subIndex].get('items')
     )).controls;
+  }
+
+  addWorkingDay() {
+    (this.signUpForm.get('workingDays') as FormArray).push(
+      new FormGroup({
+        day: new FormControl('', [Validators.required]),
+        opening_time: new FormControl('', [Validators.required]),
+        closing_time: new FormControl('', [Validators.required]),
+      })
+    );
   }
 }
