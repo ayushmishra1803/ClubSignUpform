@@ -29,11 +29,7 @@ export class AppComponent implements OnInit {
       table_number: new FormControl('', [Validators.required]),
       table_map_image: new FormControl('', [Validators.required]),
       payment_method: new FormGroup({
-        card_number: new FormControl('', [
-          Validators.required,
-          Validators.maxLength(10),
-          Validators.minLength(10),
-        ]),
+        card_number: new FormControl('', [Validators.required]),
         card_holder_name: new FormControl('', [Validators.required]),
         bank_name: new FormControl('', [Validators.required]),
         bank_location: new FormControl('', [Validators.required]),
@@ -89,13 +85,13 @@ export class AppComponent implements OnInit {
       })
     );
   }
-  getItem(menuIndex,subIndex){
+  getItem(menuIndex, subIndex) {
     return (<FormArray>(
       (<FormArray>(
         (<FormArray>this.signUpForm.get('menu')).controls[menuIndex].get(
           'sub_category'
         )
       )).controls[subIndex].get('items')
-    )).controls
+    )).controls;
   }
 }
