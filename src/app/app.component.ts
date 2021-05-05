@@ -106,4 +106,7 @@ export class AppComponent implements OnInit {
       })
     );
   }
+  getWorkingdays() {
+    return (this.signUpForm.get('workingDays') as FormArray).controls;
+  }
 }
