@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
       workingDays: new FormArray([]),
     });
   }
-  title = 'ClubSignUp';
+
   addMenuCategory() {
     (this.signUpForm.get('menu') as FormArray).push(
       new FormGroup({
