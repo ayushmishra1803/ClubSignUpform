@@ -75,4 +75,27 @@ export class AppComponent implements OnInit {
       )
     )).controls;
   }
+  addItemArray(menuIndex, subIndex) {
+    return (<FormArray>(
+      (<FormArray>(
+        (<FormArray>this.signUpForm.get('menu')).controls[menuIndex].get(
+          'sub_category'
+        )
+      )).controls[subIndex].get('items')
+    )).push(
+      new FormGroup({
+        item_name: new FormControl('', Validators.required),
+        price: new FormControl('', Validators.required),
+      })
+    );
+  }
+  getItem(menuIndex,subIndex){
+    return (<FormArray>(
+      (<FormArray>(
+        (<FormArray>this.signUpForm.get('menu')).controls[menuIndex].get(
+          'sub_category'
+        )
+      )).controls[subIndex].get('items')
+    )).controls
+  }
 }

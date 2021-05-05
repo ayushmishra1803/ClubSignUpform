@@ -117,21 +117,54 @@
               class="two-input"
               formArrayName="sub_category"
               *ngFor="
-                let subCategory of getSubcategories(menuIndex);let subIndex=index
-              "[formGroupName]="subIndex"
+                let subCategory of getSubcategories(menuIndex);
+                let subindex = index
+              "
             >
-            <mat-form-field appearance="outline" class="width50">
-              <mat-label>Sub Category</mat-label>
-              <input type="text" matInput placeholder="SubItem" formControlName="sub_category_name" />
-            </mat-form-field>
-              <mat-form-field appearance="outline" class="width50">
-                <mat-label>SubItem</mat-label>
-                <input type="text" matInput placeholder="SubItem" />
-              </mat-form-field>
-              <mat-form-field appearance="outline" class="width50">
-                <mat-label>Price</mat-label>
-                <input type="text" matInput placeholder="Price" />
-              </mat-form-field>
+              <div [formGroupName]="subindex">
+                <mat-form-field appearance="outline" class="width50">
+                  <mat-label>Sub Category</mat-label>
+                  <input
+                    type="text"
+                    matInput
+                    placeholder="SubItem"
+                    formControlName="sub_category_name"
+                  />
+                </mat-form-field>
+                <div
+                formArrayName="items"
+                  *ngFor="
+                    let item of getItem(menuIndex, subindex); let itemindex = index"
+                >
+                  <div [formGroupName]="itemindex">
+                    <mat-form-field appearance="outline" class="width50">
+                      <mat-label>Item</mat-label>
+                      <input
+                        type="text"
+                        matInput
+                        placeholder="SubItem"
+                        formControlName="item_name"
+                      />
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="width50">
+                      <mat-label>Price</mat-label>
+                      <input
+                        type="text"
+                        matInput
+                        placeholder="Price"
+                        formControlName="price"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <button
+                  mat-rasied-button
+                  type="button"
+                  (click)="addItemArray(menuIndex, subindex)"
+                >
+                  Add item
+                </button>
+              </div>
             </div>
             <button
               mat-raised-button
