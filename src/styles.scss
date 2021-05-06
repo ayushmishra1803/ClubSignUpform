@@ -1,4 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.timepicker__header {
+  background-color: #dfe1ee !important;
+}
+.clock-face__number > span.active {
+  background-color: #dfe1ee !important;
+  color: white;
+}
+.timepicker-button {
+  color: black !important;
+}
+.clock-face__clock-hand {
+  background-color: #dfe1ee !important;
+}

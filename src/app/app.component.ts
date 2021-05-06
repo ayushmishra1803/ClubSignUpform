@@ -13,6 +13,16 @@ import {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
+  toppings = new FormControl();
+  toppingList: string[] = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];
   signUpForm: FormGroup;
   ngOnInit(): void {
     this.signUpForm = new FormGroup({

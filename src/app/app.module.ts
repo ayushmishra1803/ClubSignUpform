@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -20,6 +22,8 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatFormFieldModule,
     MatCardModule,
+    MatSelectModule,
+    NgxMaterialTimepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
